@@ -2,7 +2,7 @@
 
 Write a function with the following type:
 ```ocaml
-val is_even : int -> bool
+is_even : int -> bool
 ```
 such that ``is_even x`` is true iff x is even. *Bonus*: do not use the if-then-else construct.
 

@@ -2,7 +2,7 @@
 
 Write a function with the following type:
 ```ocaml
-val hot : unit -> string = <fun>
+hot : unit -> string
 ```
 such that `hot()` evaluates to the string `"head"` or `"tail"` depending on a bit generated uniformly at random.
 

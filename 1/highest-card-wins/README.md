@@ -11,8 +11,8 @@ type card = Joker | Val of int;;
 ```
 where the value of the card is assumed to be in the range [1,10].
 
-Define a function with the following type:
+Write a function with the following type:
 ```ocaml
-val win : card -> card -> bool = <fun>
+win : card -> card -> bool
 ```
 which returns true iff the player wins (we assume that the card of the player is the first parameter of ``win``).

@@ -2,7 +2,7 @@
 
 Write a function with the following type:
 ```ocaml
-val max_nat : int -> int -> int
+max_nat : int -> int -> int
 ```
 such that ``max_nat a b`` evaluates to the maximum between ``a`` and ``b``, if they are both natural numbers. If not, the function gives an error.
 
