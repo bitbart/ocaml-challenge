@@ -7,7 +7,7 @@ type winner = Player | Computer | Tie ;;
 
 Write a function with type:
 ```ocaml
-val win : int * int -> (int * int) * winner = <fun>
+win : int * int -> (int * int) * winner
 ```
 which determines the winner of a round of the Morra game.
 The parameters `(hp,gp)` in a function call `win (hp,gp)`
