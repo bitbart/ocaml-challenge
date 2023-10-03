@@ -4,6 +4,7 @@
 
 1. [Absolute value](1/absolute-value)
 1. [Max of two natural numbers](1/maxnat)
+1. [Logical Nand](1/nand)
 2. [Even and odd](1/even-odd)
 3. [In range](1/in-range)
 4. [x to the 9th](1/exp9)
