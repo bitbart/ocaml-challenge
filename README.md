@@ -20,6 +20,7 @@
 
 1. [Comparing fractions](2/fractions)
 1. [Bounce](2/bounce)
+1. [Consensus3](2/consensus3)
 1. [Tris](2/tris)
 1. [Poker](2/poker)
 1. [Straight](2/straight)
