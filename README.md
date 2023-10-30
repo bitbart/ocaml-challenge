@@ -29,6 +29,7 @@
 
 ## Level 3
 
+1. [Count zeros of a function](3/countzero)
 1. [Enumeration of integers](3/enum-int)
 1. [Enumeration of pairs of naturals](3/enum-nat-nat)
 1. [Peano arithmetic](3/peano)
