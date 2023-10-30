@@ -5,14 +5,15 @@
 1. [Absolute value](1/absolute-value)
 1. [Max of two natural numbers](1/maxnat)
 1. [Logical Nand](1/nand)
-2. [Even and odd](1/even-odd)
-3. [In range](1/in-range)
-4. [x to the 9th](1/exp9)
-5. [Highest card wins](1/highest-card-wins)
-6. [Head or tail](1/head-or-tail)
-7. [Min and max of 3 values](1/minmax3)
-8. [Guess a number](1/guess5)
-9. [7, 11 and doubles](1/7-11-doubles)
+1. [Weekly lectures](1/weekly-lectures)
+1. [Even and odd](1/even-odd)
+1. [In range](1/in-range)
+1. [x to the 9th](1/exp9)
+1. [Highest card wins](1/highest-card-wins)
+1. [Head or tail](1/head-or-tail)
+1. [Min and max of 3 values](1/minmax3)
+1. [Guess a number](1/guess5)
+1. [7, 11 and doubles](1/7-11-doubles)
 
 ## Level 2
 
