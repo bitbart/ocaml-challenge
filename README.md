@@ -6,6 +6,7 @@
 1. [Max of two natural numbers](1/maxnat)
 1. [Logical Nand](1/nand)
 1. [Weekly lectures](1/weekly-lectures)
+1. [Parrot trouble](1/parrot-trouble)
 1. [Even and odd](1/even-odd)
 1. [In range](1/in-range)
 1. [x to the 9th](1/exp9)
