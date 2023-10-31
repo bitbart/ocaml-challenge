@@ -11,10 +11,10 @@ win : int * int -> (int * int) * winner
 ```
 which determines the winner of a round of the Morra game.
 The parameters `(hp,gp)` in a function call `win (hp,gp)`
-represent, respectively, the hand and the guess of the player
+represent, respectively, the hand and the guess of the player.
 The function randomly generates another pair of numbers:
 - `hc`, representing the hand of the computer (in the range 0..5);
-- `hg`, representing the guess of the computer (in the range 0..10);
+- `gc`, representing the guess of the computer (in the range 0..10);
 
 The winner is determined as follows:
 - if the guess of the player equals the sum of the two hands, but that of the computer does not, then the winner is the player;
@@ -28,8 +28,8 @@ win(2,5);;
 - : (int * int) * winner = ((0, 1), Tie)
 
 win(2,5);;
-- : (int * int) * winner = ((4, 6), ComputerWins)
+- : (int * int) * winner = ((4, 6), Computer)
 
 win(2,5);;
-- : (int * int) * winner = ((3, 4), PlayerWins)
+- : (int * int) * winner = ((3, 4), Player)
 ```

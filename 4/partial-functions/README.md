@@ -27,8 +27,8 @@ assuming that `f` is a partial function from `_A` to `_B`,
 ```ocaml
 rel_of_fun : 'a list -> ('a -> 'b) -> ('a * 'b) list
 ```
-assuming that `f` is an OCaml from `_A` (to some set),
-`rel_of_fun _A f` is the graph of the function, the list of pairs (x,f x).
+assuming that `f` is an OCaml function from `_A` (to some set),
+`rel_of_fun _A f` is the graph of the function, i.e. the list of pairs (x,f x).
 
 ```ocaml
 bot : 'a -> 'b

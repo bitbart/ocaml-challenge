@@ -16,3 +16,5 @@ rev [1;2;3;4;5] ;;
 [1;2;3] @ [4;5] 
 - : int list = [1; 2; 3; 4; 5]
 ```
+
+*Bonus*: make `rev` tail-recursive.
