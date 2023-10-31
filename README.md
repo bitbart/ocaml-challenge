@@ -29,17 +29,18 @@
 
 ## Level 3
 
+1. [Reverse a list](3/rev-list)
+1. [String of list](3/string-of-list)
+1. [Random list](3/rnd-list)
 1. [Count zeros of a function](3/countzero)
+1. [Rotate list](3/rotate-list)
+1. [Consecutive even](3/consecutive-even)
 1. [Enumeration of integers](3/enum-int)
 1. [Enumeration of pairs of naturals](3/enum-nat-nat)
 1. [Peano arithmetic](3/peano)
 1. [Bit strings](3/bitstrings)
 1. [Euclid's GCD](3/euclid-gcd)
 1. [Min and max of a function](3/minmaxfun)
-1. [Random list](3/rnd-list)
-1. [Reverse a list](3/rev-list)
-1. [String of list](3/string-of-list)
-1. [Consecutive even](3/consecutive-even)
 1. [Sets](3/set)
 1. [Simple language recognizers](3/lang-recognizers)
 1. [Extract an element from a list](3/extract)
