@@ -1,5 +1,7 @@
 # OCaml exercises by difficulty level
 
+To work on exercises from a local repository, read the [instructions](setup-git).
+
 ## Level 1
 
 1. [Absolute value](1/absolute-value)
