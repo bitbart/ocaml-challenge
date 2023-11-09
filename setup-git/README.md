@@ -6,7 +6,9 @@ It also aims to introduce you to some useful tools and resources that offer a sm
 In the following we assume that:
 + You are reading this guide from your own fork of the [ocaml-challenge](https://github.com/informatica-unica/ocaml-challenge). If you don't know how to fork a repository, see the useful [GitHub documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository);
 
-+ You are working on a Linux machine. If you are a Windows user, the most straightforward way to run a Linux environment on your Windows system is the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about), which can be easily installed [from the Microsoft Store](https://apps.microsoft.com/detail/9PN20MSR04DW?hl=en-us&gl=IT).
++ You are working on a Linux machine. If you are a Windows user, the most straightforward way to run a Linux environment on your Windows system is the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about), which can be easily installed [from the Microsoft Store](https://apps.microsoft.com/detail/9PN20MSR04DW?hl=en-us&gl=IT);
+
++ You have the OCaml compiler installed: check out the [installation instructions for Linux](https://ocaml.org/docs/installing-ocaml#installation-on-unix-and-macos).
 
 ## 1. Install `git`
 
