@@ -1,7 +1,7 @@
 # Count zeros of a function
 
 Define a function with type:
-```
+```ocaml
 countzero : (int -> int) -> int -> int -> int
 ```
 Given as input a function f from integers to integers and
@@ -9,7 +9,7 @@ two integers a and `b`,
 `countzero f a b` counts the zeros of f in the interval [a,b],
 i.e. the number of integer values x in the interval such that f(x)=0. 
 
-For instance, the following `assert` pass:
+For instance, the following `assert` must pass:
 ```ocaml
 assert (countzero (fun x -> x) (-10) 10 = 1);;
 

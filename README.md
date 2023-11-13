@@ -28,7 +28,8 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 1. [Straight](2/straight)
 1. [Loaded dice](2/loaded-dice)
 1. [Morra](2/morra)
-1. [Count zeros of a function](3/countzero)
+1. [Sum range](2/sumrange)
+1. [Count zeros of a function](2/countzero)
 
 ## Level 3
 
