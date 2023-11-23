@@ -31,6 +31,7 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 1. [Morra](2/morra)
 1. [Sum range](2/sumrange)
 1. [Count zeros of a function](2/countzero)
+1. [Has one](2/has-one)
 
 ## Level 3
 
