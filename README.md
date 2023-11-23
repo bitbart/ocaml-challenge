@@ -17,6 +17,7 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 1. [Min and max of 3 values](1/minmax3)
 1. [Guess a number](1/guess5)
 1. [7, 11 and doubles](1/7-11-doubles)
+1. [Squirrel play](1/squirrel-play)
 
 ## Level 2
 
