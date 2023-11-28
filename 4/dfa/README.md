@@ -1,6 +1,6 @@
 # Deterministic Finite Automata
 
-Consider the following type to represent Finite State Automata:
+Consider the following type to represent Finite State Automata (FSAs):
 ```ocaml
 type 'a fsa = {
   trans: (int * 'a * int) list;     (* set of transitions *)
@@ -8,8 +8,8 @@ type 'a fsa = {
   final: int list                   (* final states *)
 }
 ```
-where the sets of states and labels can be inferred by the transition relation.
-We assume that set are represented as lists, as done in [this exercise](../3/sets).
+The sets of states and labels of the FSA can be inferred by the transition relation.
+We assume that set are represented as lists, as done in [this exercise](../../3/set).
 
 In the asserts below, we use the following FSAs as examples:
 ```ocaml
@@ -39,14 +39,14 @@ let m3 = {
   final = [1;2] }
 ;;
 ```
-We also use the following functions to compare sets:
+In the asserts, we will use the following functions to compare sets:
 ```ocaml
 let subseteq l l' = List.fold_right (fun x y -> if List.mem x l' then y else false) l true;;
 
 let equals l l' = subseteq l l' && subseteq l' l;;
 ```
 
-The project requires to implement the followinfg functions.
+The project requires to implement the following functions on FSAs.
 
 
 ## Get labels
@@ -85,7 +85,7 @@ assert (equals (getstates m2) [0;1;2]);;
 assert (equals (getstates m3) [0;1;2]);;
 ```
 
-## Check is FSA is complete
+## Check if FSA is complete
 
 `is_complete m` evaluates to true iff the FSA `m` is complete,
 that is for each state there are outgoing transitions for all labels.
@@ -97,7 +97,7 @@ assert (is_complete m2 = false);;
 assert (is_complete m3 = false);;
 ```
 
-## Check is FSA is deterministic 
+## Check if FSA is deterministic 
 
 `is_deterministic m` evaluates to true iff the FSA `m` is deterministic.
 ```ocaml
@@ -143,13 +143,14 @@ assert (accept ['0';'0';'1';'1'] m1 = false);;
 assert (accept ['1';'0';'0';'1'] m1 = false);;
 ```
 
-## Completing a DFA
+## Completing a FSA
 
-`complete m q` constructs a FSA that completes the DFA `m` with the sink state `q`.
+`complete m q` constructs the completion of a FSA `m` with the sink state `q`.
 ```ocaml
 complete : 'a fsa -> int -> 'a fsa
 
 let m3' = complete m3 3;;
+assert (is_complete m3');;
 assert (accept ['0';'1';'0';'1'] m3');;
 assert (accept ['0';'0';'1';'0';'0'] m3');;
 assert (accept ['0';'1';'1';'0'] m3' = false);;
