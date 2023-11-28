@@ -55,7 +55,9 @@ let getlabels m =
   mkset (List.map (fun (q,a,q') -> a) m.trans)
 ;;
 
-getlabels m1;;
+assert (equals (getlabels m1) ['0';'1']);;
+assert (equals (getlabels m2) ['0';'1']);;
+assert (equals (getlabels m3) ['0';'1']);;
 
 (* set of labels in outgoing transition from state q *)
 let outlabels m q =
@@ -63,14 +65,19 @@ let outlabels m q =
            (List.filter (fun (q',a,q'') -> q'=q) m.trans))
 ;;
 
-outlabels m2 2;;
+assert (equals (outlabels m1 0) ['0';'1']);;
+assert (equals (outlabels m1 1) ['0';'1']);;
+assert (equals (outlabels m1 2) ['0';'1']);;
+assert (equals (outlabels m2 2) ['0']);;
 
 (* set of states of a dfa *)
 let getstates m = 
   mkset (List.flatten (List.map (fun (q,a,q') -> [q;q']) m.trans))
 ;;
 
-getstates m1;;
+assert (equals (getstates m1) [0;1;2]);;
+assert (equals (getstates m2) [0;1;2]);;
+assert (equals (getstates m3) [0;1;2]);;
 
 (* determines if a dfa is complete *)
 let is_complete m = 
@@ -93,24 +100,31 @@ assert (is_deterministic m2 = false);;
 assert (is_deterministic m3);;
 
 (* pre: tl is deterministic and complete *)
-let rec step q a = function
+let rec step1_rec q a = function
     [] -> failwith "DFA is not complete"
-  | (q',b,q'')::l -> if q'=q && b=a then q'' else step q a l
-;;
+  | (q',b,q'')::l -> if q'=q && b=a then q'' else step1_rec q a l
 
-step 2 '0' m1.trans;;
+let step1 q a m = step1_rec q a m.trans;;
 
-(* pre: tl is deterministic and complete *)
-let rec step_star q w tl = match w with
+assert (step1 0 '0' m1 = 0);;
+assert (step1 0 '1' m1 = 1);;
+assert (step1 1 '0' m1 = 2);;
+assert (step1 1 '1' m1 = 2);;
+assert (step1 2 '0' m1 = 2);;
+assert (step1 2 '1' m1 = 2);;
+
+(* pre: m is deterministic and complete *)
+let rec step q w m = match w with
     [] -> q
-  | a::w' -> step_star (step q a tl) w' tl
+  | a::w' -> step (step1 q a m) w' m
 ;;
 
-step_star 0 ['0';'1';'1'] m1.trans;;
+assert(step 0 ['0';'0';'0'] m1 = 0);;
+assert(step 0 ['0';'1';'1'] m1 = 2);;
 
 
 (* pre: m is deterministic and complete *)
-let accept w m = List.mem (step_star m.init w m.trans) m.final;;
+let accept w m = List.mem (step m.init w m) m.final;;
 
 assert (accept ['0';'0';'1'] m1);;
 assert (accept ['0';'0';'1';'1'] m1 = false);;
@@ -125,7 +139,6 @@ let complete m sink =
 ;;
 
 let m3' = complete m3 3;;
-
 assert (accept ['0';'1';'0';'1'] m3');;
 assert (accept ['0';'0';'1';'0';'0'] m3');;
 assert (accept ['0';'1';'1';'0'] m3' = false);;
