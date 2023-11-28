@@ -22,7 +22,6 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 ## Level 2
 
 1. [Comparing fractions](2/fractions)
-1. [Bounce](2/bounce)
 1. [Consensus3](2/consensus3)
 1. [Tris](2/tris)
 1. [Poker](2/poker)
@@ -35,6 +34,7 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 
 ## Level 3
 
+1. [Bounce](3/bounce)
 1. [Reverse a list](3/rev-list)
 1. [String of list](3/string-of-list)
 1. [Random list](3/rnd-list)
