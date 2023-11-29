@@ -41,9 +41,11 @@ let m3 = {
 ```
 In the asserts, we will use the following functions to compare sets:
 ```ocaml
-let subseteq l l' = List.fold_right (fun x y -> if List.mem x l' then y else false) l true;;
+let rec subseteq xl yl = match xl with
+    [] -> true
+  | x::xl' -> mem x yl && subseteq xl' yl;;
 
-let equals l l' = subseteq l l' && subseteq l' l;;
+let seteq xl yl = (subseteq xl yl) && (subseteq yl xl);;
 ```
 
 The project requires to implement the following functions on FSAs.
@@ -56,9 +58,9 @@ The project requires to implement the following functions on FSAs.
 ```ocaml
 getlabels : ('a,'b) fsa -> 'b list
 
-assert (equals (getlabels m1) ['0';'1']);;
-assert (equals (getlabels m2) ['0';'1']);;
-assert (equals (getlabels m3) ['0';'1']);;
+assert (seteq (getlabels m1) ['0';'1']);;
+assert (seteq (getlabels m2) ['0';'1']);;
+assert (seteq (getlabels m3) ['0';'1']);;
 ```
 
 ## Get outgoing labels
@@ -68,10 +70,10 @@ assert (equals (getlabels m3) ['0';'1']);;
 ```ocaml
 outlabels : ('a,'b) fsa -> 'a -> 'b list
 
-assert (equals (outlabels m1 0) ['0';'1']);;
-assert (equals (outlabels m1 1) ['0';'1']);;
-assert (equals (outlabels m1 2) ['0';'1']);;
-assert (equals (outlabels m2 2) ['0']);;
+assert (seteq (outlabels m1 0) ['0';'1']);;
+assert (seteq (outlabels m1 1) ['0';'1']);;
+assert (seteq (outlabels m1 2) ['0';'1']);;
+assert (seteq (outlabels m2 2) ['0']);;
 ```
 
 ## Get states
@@ -80,9 +82,9 @@ assert (equals (outlabels m2 2) ['0']);;
 ```ocaml
 getstates : ('a,'b) fsa -> 'a list
 
-assert (equals (getstates m1) [0;1;2]);;
-assert (equals (getstates m2) [0;1;2]);;
-assert (equals (getstates m3) [0;1;2]);;
+assert (seteq (getstates m1) [0;1;2]);;
+assert (seteq (getstates m2) [0;1;2]);;
+assert (seteq (getstates m3) [0;1;2]);;
 ```
 
 ## Check if FSA is complete
