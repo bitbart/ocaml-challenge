@@ -1,15 +1,15 @@
 (**********************************************************************
  * DFAs 
-   States are represented as integers, labels are polymorphic
+   States and labels are polymorphic
    pre: trans has no duplicates
    pre: init in states(trans)
    pre: for all q in final . q in states(trans)
  **********************************************************************)
 
-type 'a fsa = {
-  trans: (int * 'a * int) list;     (* set of transitions *)
-  init: int;                        (* initial state *)
-  final: int list                   (* final states *)
+type ('a,'b) fsa = {
+  trans: ('a * 'b * 'a) list;       (* set of transitions *)
+  init: 'a;                         (* initial state *)
+  final: 'a list                    (* final states *)
 };;
 
 (* m1 deterministic and complete *)
@@ -44,13 +44,17 @@ let mkset l = List.fold_left (fun l' x -> if List.mem x l' then l' else x::l') [
 
 let dup l = List.length l <> List.length (mkset l);;
 
-let rec union l1 l2 = List.fold_left (fun l x -> if List.mem x l then l else x::l) l1 l2;;
+let union l1 l2 = List.fold_left (fun l x -> if List.mem x l then l else x::l) l1 l2;;
 
 let subseteq l l' = List.fold_right (fun x y -> if List.mem x l' then y else false) l true;;
 
 let equals l l' = subseteq l l' && subseteq l' l;;
 
-(* set of labels of a dfa *)
+
+(**********************************************************************
+ * getlabels : 'a fsa -> 'a list
+ **********************************************************************)
+
 let getlabels m = 
   mkset (List.map (fun (q,a,q') -> a) m.trans)
 ;;
@@ -59,7 +63,11 @@ assert (equals (getlabels m1) ['0';'1']);;
 assert (equals (getlabels m2) ['0';'1']);;
 assert (equals (getlabels m3) ['0';'1']);;
 
-(* set of labels in outgoing transition from state q *)
+
+(**********************************************************************
+ * outlabels : 'a fsa -> int -> 'a list
+ **********************************************************************)
+
 let outlabels m q =
   mkset (List.map (fun (q',a,q'') -> a)
            (List.filter (fun (q',a,q'') -> q'=q) m.trans))
@@ -70,7 +78,11 @@ assert (equals (outlabels m1 1) ['0';'1']);;
 assert (equals (outlabels m1 2) ['0';'1']);;
 assert (equals (outlabels m2 2) ['0']);;
 
-(* set of states of a dfa *)
+
+(**********************************************************************
+ * getstates : 'a fsa -> int list
+ **********************************************************************)
+
 let getstates m = 
   mkset (List.flatten (List.map (fun (q,a,q') -> [q;q']) m.trans))
 ;;
@@ -79,7 +91,11 @@ assert (equals (getstates m1) [0;1;2]);;
 assert (equals (getstates m2) [0;1;2]);;
 assert (equals (getstates m3) [0;1;2]);;
 
-(* determines if a dfa is complete *)
+
+(**********************************************************************
+ * is_complete : 'a fsa -> bool
+ **********************************************************************)
+
 let is_complete m = 
   let qQ = getstates m in
   let lL = getlabels m in
@@ -90,7 +106,12 @@ assert (is_complete m1);;
 assert (is_complete m2 = false);;
 assert (is_complete m3 = false);;
 
-(* pre: m.trans does not contain duplicates *)
+
+(**********************************************************************
+ * is_deterministic : 'a fsa -> bool
+ **********************************************************************)
+
+(* pre: m does not contain duplicates *)
 let rec is_deterministic m = 
   not (dup (List.map (fun (q,a,q') -> (q,a)) m.trans))
 ;;
@@ -98,6 +119,11 @@ let rec is_deterministic m =
 assert (is_deterministic m1);;
 assert (is_deterministic m2 = false);;
 assert (is_deterministic m3);;
+
+
+(**********************************************************************
+ * step1 : int -> 'a -> 'a fsa -> int
+ **********************************************************************)
 
 (* pre: tl is deterministic and complete *)
 let rec step1_rec q a = function
@@ -113,6 +139,10 @@ assert (step1 1 '1' m1 = 2);;
 assert (step1 2 '0' m1 = 2);;
 assert (step1 2 '1' m1 = 2);;
 
+(**********************************************************************
+ * step : int -> 'a list -> 'a fsa -> int
+ **********************************************************************)
+
 (* pre: m is deterministic and complete *)
 let rec step q w m = match w with
     [] -> q
@@ -123,6 +153,10 @@ assert(step 0 ['0';'0';'0'] m1 = 0);;
 assert(step 0 ['0';'1';'1'] m1 = 2);;
 
 
+(**********************************************************************
+ * accept : 'a list -> 'a fsa -> bool
+ **********************************************************************)
+
 (* pre: m is deterministic and complete *)
 let accept w m = List.mem (step m.init w m) m.final;;
 
@@ -130,15 +164,21 @@ assert (accept ['0';'0';'1'] m1);;
 assert (accept ['0';'0';'1';'1'] m1 = false);;
 assert (accept ['1';'0';'0';'1'] m1 = false);;
 
+
+(**********************************************************************
+ * complete : 'a fsa -> int -> 'a fsa
+ **********************************************************************)
+
 let complete m sink =
   let qQ = getstates m in
   let lL = getlabels m in
-  let tl = List.fold_left (fun tl q -> tl @ (List.map (fun a -> (q,a,sink)) lL)) [] qQ in
+  let tl = List.fold_left (fun tl q -> tl @ (List.map (fun a -> (q,a,sink)) lL)) [] (sink::qQ) in
   let sl = List.filter (fun (q,a,_) -> not (List.mem a (outlabels m q))) tl
   in { trans = m.trans @ sl; init = m.init; final = m.final }
 ;;
 
 let m3' = complete m3 3;;
+assert (is_complete m3');;
 assert (accept ['0';'1';'0';'1'] m3');;
 assert (accept ['0';'0';'1';'0';'0'] m3');;
 assert (accept ['0';'1';'1';'0'] m3' = false);;
