@@ -1,6 +1,6 @@
 # ALF students
 
-Consider the following record type to represent the votes of university students:
+Consider the following [record type](https://cs3110.github.io/textbook/chapters/data/records_tuples.html) to represent the votes of university students:
 ```ocaml
 type student = {
   id: string;
@@ -11,7 +11,7 @@ type student = {
 }
 ```
 
-The votes of student attending the ALF course are stored in the following list:
+The votes of students attending the ALF course are stored in the following list:
 ```ocaml
 let alf2023 = [
   { id="60/61/65570"; name="Ambra"; surname="Ambu"; vote=Some 21; laude=false };
@@ -43,23 +43,22 @@ Write the following functions.
 ```ocaml
 id_of_noshow : student list -> string list
 ```
-matriculation (id) of students who have not tried the exam.
+returns the matriculations (id) of students who have not tried the exam (i.e., whose vote is `None`).
 
 ```ocaml
-upgradeable : student list -> string list *)
+upgradeable : student list -> string list
 ```
-name surname of students who have a vote between 15 and 17.
-
+returns name/surname of students who have a vote between 15 and 17.
 
 ```ocaml
-upgrade : student list -> student list *)
+upgrade : student list -> student list
 ```
 upgrades to 18 the votes from 15 to 17.
 
 ```ocaml
-wrong_laude : student list -> string list *)
+wrong_laude : student list -> string list
 ```
-name surname of students who have a laude but no vote or vote less than 30.
+returns name/surname of students who have a laude but no vote or vote less than 30.
 
 ```ocaml
 fix_laude : student list -> student list
