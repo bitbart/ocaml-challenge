@@ -47,7 +47,7 @@ assert(mem [1;2] [[1];[2];[2;1]] = false);;
 
 ## Check for duplicates
 
-`dup l` evaluates to true iff the list l contains duplicates (and therefore, it is not a set).
+`dup l` evaluates to true iff the list `l` contains duplicates (and therefore, it is not a set).
 ```ocaml
 dup : 'a list -> bool
 
@@ -59,7 +59,7 @@ assert(dup [1;3;5;3]);;
 
 ## Construct set from list
 
-`makeset l` removes the duplicates from the list `l`, making is a set.
+`mkset l` removes the duplicates from the list `l`, making is a set.
 ```ocaml
 mkset : 'a list -> 'a list
 
@@ -103,7 +103,7 @@ assert(seteq (dsum [1;2] [2;3]) [(0,1);(0,2);(1,2);(1,3)]);;
 
 ## Power set
 
-`powset xl` computes the **powerset** of the set `xl`.
+`powset xl` computes the set of all subsets of `xl`.
 
 ```ocaml
 powset : 'a list -> 'a list list
