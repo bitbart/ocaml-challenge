@@ -128,3 +128,9 @@ assert(seteq (dsum [1;2] [2;3]) [(0,1);(0,2);(1,2);(1,3)]);;
 let rec powset = function
     [] -> [[]]
   | x::xl -> let yll = powset xl in yll @ List.map (fun yl -> union [x] yl) yll;;
+
+assert (powset [] = [[]]);;
+assert (seteq (powset [1]) [[];[1]]);;
+assert (List.length (powset [1;2]) = 4);;
+assert (List.length (powset [1;2;3]) = 8);;
+assert (List.length (powset [1;2;3;4]) = 16);;

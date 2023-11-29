@@ -48,7 +48,7 @@ let union l1 l2 = List.fold_left (fun l x -> if List.mem x l then l else x::l) l
 
 let subseteq l l' = List.fold_right (fun x y -> if List.mem x l' then y else false) l true;;
 
-let equals l l' = subseteq l l' && subseteq l' l;;
+let seteq l l' = subseteq l l' && subseteq l' l;;
 
 
 (**********************************************************************
@@ -59,9 +59,9 @@ let getlabels m =
   mkset (List.map (fun (q,a,q') -> a) m.trans)
 ;;
 
-assert (equals (getlabels m1) ['0';'1']);;
-assert (equals (getlabels m2) ['0';'1']);;
-assert (equals (getlabels m3) ['0';'1']);;
+assert (seteq (getlabels m1) ['0';'1']);;
+assert (seteq (getlabels m2) ['0';'1']);;
+assert (seteq (getlabels m3) ['0';'1']);;
 
 
 (**********************************************************************
@@ -73,10 +73,10 @@ let outlabels m q =
            (List.filter (fun (q',a,q'') -> q'=q) m.trans))
 ;;
 
-assert (equals (outlabels m1 0) ['0';'1']);;
-assert (equals (outlabels m1 1) ['0';'1']);;
-assert (equals (outlabels m1 2) ['0';'1']);;
-assert (equals (outlabels m2 2) ['0']);;
+assert (seteq (outlabels m1 0) ['0';'1']);;
+assert (seteq (outlabels m1 1) ['0';'1']);;
+assert (seteq (outlabels m1 2) ['0';'1']);;
+assert (seteq (outlabels m2 2) ['0']);;
 
 
 (**********************************************************************
@@ -87,9 +87,9 @@ let getstates m =
   mkset (List.flatten (List.map (fun (q,a,q') -> [q;q']) m.trans))
 ;;
 
-assert (equals (getstates m1) [0;1;2]);;
-assert (equals (getstates m2) [0;1;2]);;
-assert (equals (getstates m3) [0;1;2]);;
+assert (seteq (getstates m1) [0;1;2]);;
+assert (seteq (getstates m2) [0;1;2]);;
+assert (seteq (getstates m3) [0;1;2]);;
 
 
 (**********************************************************************
