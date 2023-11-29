@@ -2,10 +2,10 @@
 
 Consider the following type to represent Finite State Automata (FSAs):
 ```ocaml
-type 'a fsa = {
-  trans: (int * 'a * int) list;     (* set of transitions *)
-  init: int;                        (* initial state *)
-  final: int list                   (* final states *)
+type ('a,'b) fsa = {
+  trans: ('a * 'b * 'a) list;      (* set of transitions *)
+  init: 'a;                        (* initial state *)
+  final: 'a list                   (* final states *)
 }
 ```
 The sets of states and labels of the FSA can be inferred by the transition relation.
@@ -54,7 +54,7 @@ The project requires to implement the following functions on FSAs.
 `getlabels m` outputs the set of labels in the FSA `m`.
 
 ```ocaml
-getlabels : 'a fsa -> 'a list
+getlabels : ('a,'b) fsa -> 'b list
 
 assert (equals (getlabels m1) ['0';'1']);;
 assert (equals (getlabels m2) ['0';'1']);;
@@ -66,7 +66,7 @@ assert (equals (getlabels m3) ['0';'1']);;
 `outlabels m q` outputs the set of outgoing labels from the state `q`.
 
 ```ocaml
-outlabels : 'a fsa -> int -> 'a list
+outlabels : ('a,'b) fsa -> 'a -> 'b list
 
 assert (equals (outlabels m1 0) ['0';'1']);;
 assert (equals (outlabels m1 1) ['0';'1']);;
@@ -78,7 +78,7 @@ assert (equals (outlabels m2 2) ['0']);;
 
 `getstates m` outputs the set of states of the FSA `m`.
 ```ocaml
-getstates : 'a fsa -> int list
+getstates : ('a,'b) fsa -> 'a list
 
 assert (equals (getstates m1) [0;1;2]);;
 assert (equals (getstates m2) [0;1;2]);;
@@ -90,7 +90,7 @@ assert (equals (getstates m3) [0;1;2]);;
 `is_complete m` evaluates to true iff the FSA `m` is complete,
 that is for each state there are outgoing transitions for all labels.
 ```ocaml
-is_complete : 'a fsa -> bool
+is_complete : ('a,'b) fsa -> bool
 
 assert (is_complete m1);;
 assert (is_complete m2 = false);;
@@ -101,7 +101,7 @@ assert (is_complete m3 = false);;
 
 `is_deterministic m` evaluates to true iff the FSA `m` is deterministic.
 ```ocaml
-is_deterministic : 'a fsa -> bool
+is_deterministic : ('a,'b) fsa -> bool
 
 assert (is_deterministic m1);;
 assert (is_deterministic m2 = false);;
@@ -112,7 +112,7 @@ assert (is_deterministic m3);;
 
 `step1 q a m` takes as input a state `q`, a label `a` and a complete DFA `m`, and outputs the state reached by reading `a` in `q`.
 ```ocaml
-step1 : int -> 'a -> 'a fsa -> int
+step1 : 'a -> 'b -> ('a,'b') fsa -> 'a
 
 assert (step1 0 '0' m1 = 0);;
 assert (step1 0 '1' m1 = 1);;
@@ -126,7 +126,7 @@ assert (step1 2 '1' m1 = 2);;
 
 `step q w m` takes as input a state `q`, a word `w` and a complete DFA `m`, and outputs the state reached by reading `w` in `q`.
 ```ocaml
-step : int -> 'a list -> 'a fsa -> int
+step : 'a -> 'b list -> ('a,'b) fsa -> 'a
 
 assert(step 0 ['0';'0';'0'] m1 = 0);;
 assert(step 0 ['0';'1';'1'] m1 = 2);;
@@ -136,7 +136,7 @@ assert(step 0 ['0';'1';'1'] m1 = 2);;
 
 `accept w m` evaluates to true iff the word `w` is accepted by the complete DFA `m`.
 ```ocaml
-accept : 'a list -> 'a fsa -> bool
+accept : 'a list -> ('b,'a) fsa -> bool
 
 assert (accept ['0';'0';'1'] m1);;
 assert (accept ['0';'0';'1';'1'] m1 = false);;
@@ -147,7 +147,7 @@ assert (accept ['1';'0';'0';'1'] m1 = false);;
 
 `complete m q` constructs the completion of a FSA `m` with the sink state `q`.
 ```ocaml
-complete : 'a fsa -> int -> 'a fsa
+complete : ('a,'b) fsa -> 'a -> ('a,'b) fsa
 
 let m3' = complete m3 3;;
 assert (is_complete m3');;
