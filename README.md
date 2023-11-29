@@ -51,6 +51,7 @@ To work on exercises from a local repository, read the [instructions](setup-git)
 1. [Extract an element from a list](3/extract)
 1. [Deck of cards](3/deck-of-cards)
 1. [Student grades](3/cumlaude)
+1. [ALF students](3/alf-students)
 
 ## Level 4
 
