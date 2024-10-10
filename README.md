@@ -13,6 +13,11 @@ It is suggested to work on exercises using a local installation of OCaml.
 1. [Max of two natural numbers](1/maxnat)
 1. [Weekly lectures](1/weekly-lectures)
 1. [Parrot trouble](1/parrot-trouble)
+1. [Increment optional value](1/increment-option)
+1. [Squirrel play](1/squirrel-play)
+1. [Exam committee](1/exam-committee)
+1. [Movie ratings](1/movie-ratings)
+1. [Best offer](1/best-offer)
 1. [Even and odd](1/even-odd)
 1. [In range](1/in-range)
 1. [x to the 9th](1/exp9)
@@ -21,7 +26,6 @@ It is suggested to work on exercises using a local installation of OCaml.
 1. [Min and max of 3 values](1/minmax3)
 1. [Guess a number](1/guess5)
 1. [7, 11 and doubles](1/7-11-doubles)
-1. [Squirrel play](1/squirrel-play)
 
 ## Level 2
 
