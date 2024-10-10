@@ -1,11 +1,13 @@
 # Weekly lectures
 
-Consider the following types:
+OCaml has a convenient syntax to define enumerated types: the elements of the enumeration are listed, separated by `|`.
+For example:
 ```ocaml
 type weekday = Mo | Tu | We | Th | Fr
 
 type course = ALF | LIP
 ```
+The elements of the enumeration are always capitalized.
 
 Write a function with type:
 ```ocaml
