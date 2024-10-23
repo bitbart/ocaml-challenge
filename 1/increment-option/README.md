@@ -1,7 +1,7 @@
 # Increment optional value
 
 In OCaml you can use values of type `option` via pattern matching. 
-For example, the following function takes as input a value of type `int option` and returns 0 or the value within the Some tag:
+For example, the following function takes as input a value of type `int option` and returns 0 or the value within the `Some` tag:
 ```ocaml
 let f x = match x with
   None -> 0
