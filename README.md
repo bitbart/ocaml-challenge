@@ -70,6 +70,7 @@ It is suggested to work on exercises using a local installation of OCaml.
 
 1. [Sets with list combinators](4/set-fold)
 1. [Partial functions](4/partial-functions)
+1. [And then...](4/and-then)
 1. [DFAs](4/dfa)
 1. [Fibonacci sequence](4/fibonacci-seq)
 1. [Alternating even numbers](4/alt-even)
