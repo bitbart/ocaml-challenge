@@ -1,6 +1,6 @@
 # And then...
 
-Before attempting this exercise, do the exercise [first-third-fifth](../../3/first-third-fifth/README.md).
+It is strongly recommended that you do [first-third-fifth](../../3/first-third-fifth/README.md) before attempting this exercise.
 
 You are given a new infix operator called "and then" defined as follows:
 
@@ -13,7 +13,7 @@ let ( -?-> ) (o : 'a option) (next : 'a -> 'b option) : 'b option =
 
 It takes an optional value: if it is `None` then it propagates `None` in the return value, otherwise it applies the argument `next` to the value within `Some` to return a new optional value.
 
-It is useful for chaining operations that might fail (where failure is intended as returning `None`) at any point. For example, the following assertions hold:
+It is useful for chaining operations that might fail at any point (where failure is intended as returning `None`). The assertions below show how it is used to create a pipeline for summing three optional integers:
 
 ```ocaml
 assert ((
@@ -29,8 +29,20 @@ assert ((
   Some (x + y + z)) = None);;
 ```
 
-Recall the type of [`first_third_fifth`](../../3/first-third-fifth/README.md), which extracts the first, third and fifth elements from a list, if they exist:
+A common operation that notoriously fails is index lookup on a list: what to do if the index is out of bounds? Languages like Python throw an exception and make the whole program fail; C lets you access the out-of-bounds location anyway and possibly corrupt your memory. Others like Javascript return a special `undefined` value.
+
+In OCaml index lookup can be performed in a safe manner with the `List.nth_opt` function of the standard library. It uses the `option` type to wrap the result of the lookup:
+```
+List.nth_opt : 'a list -> int -> 'a option
+```
+If the list is too short it returns `None`, otherwise it returns the n-th element inside the `Some` constructor.
+
+Recall the exercise [first_third_fifth](../../3/first-third-fifth/README.md), where you had to define a function that extracts the first, third and fifth elements from a list that is long enough. Its type was:
 ```ocaml
 first_third_fifth : 'a list -> ('a * 'a * 'a) option 
 ```
-Redefine it in terms of the `-?->` operator. Does it make the new definition more concise than the old one?
+Your task is to redefine it in terms of the `-?->` operator.
+
+Read each position with `List.nth_opt` and pipe its output through `-?->` to an anonymous function that performs the next read. Repeat until you have enough values to form a triple.
+
+Is the new definition shorter than the old one?
