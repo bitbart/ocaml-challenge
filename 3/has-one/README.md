@@ -7,7 +7,7 @@ has_one : int -> bool
 For a positive integer n, `has_one n` returns true if n contains a 1 digit.
 If n is negative, then the function must fail.
 
-For instance, the following asserts must pass:
+Here are some unit tests:
 ```ocaml
 assert(has_one 10 = true);;
 assert(has_one 220 = false);;
