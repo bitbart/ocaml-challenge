@@ -1,6 +1,6 @@
 # Grandfather and grandson
 
-Solve the following puzzle:
+Solve the following [puzzle](https://ocaml-sf.org/learn-ocaml-public/index.html#activity=exercises):
 
 > *If you multiply my grand-son age by four, you know how old I am. Now, if you exchange the two digits of our ages then you have to multiply by three my age to get the age of my grand-son!*
 

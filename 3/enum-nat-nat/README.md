@@ -2,7 +2,7 @@
 
 Write a function with type
 ```ocaml
-val enum_nat_nat : int -> int * int = <fun>
+enum_nat_nat : int -> int * int
 ```
 which maps each natural number to a pair of naturals,
 producing the following enumeration:

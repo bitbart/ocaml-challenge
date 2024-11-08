@@ -12,7 +12,7 @@ complete if it includes exactly 40 cards.
 
 Write a function with type:
 ```ocaml
-val is_complete : card list -> bool = <fun>
+is_complete : card list -> bool
 ```
 which evaluates to true iff the argument is a complete deck.
 
@@ -24,7 +24,6 @@ Then, recall the Ocaml function to generate random numbers bounded by a given in
 
 Use this random generator to write a function with type:
 ```ocaml
-val gen_deck : unit -> card list = <fun>
+gen_deck : unit -> card list
 ```
 which generates a complete random deck of cards.
-

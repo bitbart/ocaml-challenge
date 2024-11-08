@@ -2,7 +2,7 @@
 
 Write a function to reverse the the elements of a list, with the following type:
 ```ocaml
-val rev : 'a list -> 'a list = <fun>
+rev : 'a list -> 'a list
 ```
 
 For example:

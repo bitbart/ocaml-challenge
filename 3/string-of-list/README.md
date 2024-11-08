@@ -8,7 +8,7 @@ Recall the ^ operator to concatenate strings:
 
 Write a function with the following type:
 ```ocaml
-val string_of_list : int list -> string = <fun>
+string_of_list : int list -> string
 ```
 such that `string_of_list l` evaluates to a string representation of
 the list of integers l.

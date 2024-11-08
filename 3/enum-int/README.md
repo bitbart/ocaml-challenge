@@ -2,7 +2,7 @@
 
 Write a function with type
 ```ocaml
-val enum_int : int -> int = <fun>
+enum_int : int -> int
 ```
 which maps each natural number to an integer,
 producing the following enumeration:

@@ -3,7 +3,7 @@
 Write a function to extract the element at a given index from a list.
 The function must have the following type:
 ```ocaml
-val extract : int -> 'a list -> 'a * 'a list = <fun>
+extract : int -> 'a list -> 'a * 'a list
 ```
 The semantics of `extract i l` is the following:
 - if the index i is within the bounds of the list, then it evaluates to a pair
