@@ -38,7 +38,7 @@ It is suggested to work on exercises using a local installation of OCaml.
 1. [Alternative](2/alternative/README.md)
 1. [Conditional application](2/apply-if/README.md)
 1. [Restrict domain](2/restrict-dom/README.md)
-1. [From function to type](2/fun-of-type/README.md)
+1. [From type to function](2/fun-of-type/README.md)
 1. [Characteristic functions](2/characteristic-fun/README.md)
 1. [Comparing fractions](2/fractions/README.md)
 1. [Consensus3](2/consensus3/README.md)
