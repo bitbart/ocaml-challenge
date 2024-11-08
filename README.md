@@ -34,6 +34,8 @@ It is suggested to work on exercises using a local installation of OCaml.
 1. [Both true](2/both-true/README.md)
 1. [Pipe operator](2/pipeline/README.md)
 1. [Option map](2/option-map/README.md)
+1. [Optional application](2/option-seq/README.md)
+1. [Alternative](2/alternative/README.md)
 1. [Conditional application](2/apply-if/README.md)
 1. [Restrict domain](2/restrict-dom/README.md)
 1. [From function to type](2/fun-of-type/README.md)
