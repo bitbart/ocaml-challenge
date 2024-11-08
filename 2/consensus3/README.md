@@ -17,8 +17,10 @@ the output function `f` satisfies the following properties:
 
 For instance:
 ```ocaml
-consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 0 undefined
-consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 1 = Some 5
-consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 2 = Some 2
-consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 3 = None
+assert (try
+  consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 0 = None
+  with _ -> true);;
+assert (consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 1 = Some 5);;
+assert (consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 2 = Some 2);;
+assert (consensus3 ((fun x -> x), (fun y -> y+4), (fun z -> 5/z)) 3 = None);;
 ```
