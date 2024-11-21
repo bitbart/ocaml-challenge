@@ -12,6 +12,7 @@ It is suggested to work on exercises using a local installation of OCaml.
 1. [Absolute value](1/absolute-value/README.md)
 1. [Max of two natural numbers](1/maxnat/README.md)
 1. [Weekly lectures](1/weekly-lectures/README.md)
+1. [Blood donations](1/blood-donations/README.md)
 1. [Parrot trouble](1/parrot-trouble/README.md)
 1. [Increment optional value](1/increment-option/README.md)
 1. [Squirrel play](1/squirrel-play/README.md)
