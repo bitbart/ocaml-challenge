@@ -18,4 +18,10 @@ which transforms a valid grade into an integer (where ``CumLaude`` counts for 32
 ```ocaml
 avg : grade list -> float
 ```
-which computes the average of a list of valid grades (it fails if some grade in the list is not valid).
+which computes the average of a list of *valid* grades (it fails if some grade in the list is not valid).
+
+Finally, write a function with type: 
+```ocaml
+avg_norec : grade list -> float
+```
+that takes as input a list of grades (not necessarily valid) and outputs the average of all the valid grades in the list. This function must use list combinators and function pipelining, and must not use recursion. 

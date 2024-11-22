@@ -1,4 +1,4 @@
-# Extract first, third and fifth element of a list
+# 1st, 3rd and 5th
 
 Write a polymorphic function that returns the first, third and fifth element of a list. Its type must be:
 
